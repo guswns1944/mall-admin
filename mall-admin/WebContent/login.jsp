@@ -28,11 +28,11 @@
 			</tr>
 			<tr>
 				<th>관리자 ID :
-				<input type="text" name="adminId"></th>
+				<input type="text" name="adminId" value="admin"></th>
 			</tr>
 			<tr>
 				<th>관리자 PW :
-				<input type="password" name="adminPw"></th>
+				<input type="password" name="adminPw" value=1234></th>
 			</tr>
 			<tr>
 			<th ><button class="btn btn-secondary" style=float:right; type="submit">로그인</button></th>
