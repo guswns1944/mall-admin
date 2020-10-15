@@ -15,7 +15,31 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#btn").click(function(){
+			if($("#categoryName").val().length<1){
+				alert("카테고리 이름 확인");
+				return;
+			}else if($("#productName").val().length<1){
+				alert("제품이름 확인");
+				return;
+			}else if($("#productPrice").val().length<1){
+				alert("제품가격 확인");
+				return;
+			}else if($("#productContent").val().length<1){
+				alert("제품설명 확인");
+				return;
+			}else if($(".soldOut:checked").val().length<1){
+				alert("품절여부 확인");
+				return;
+			}
+			
+			$("#addProductForm").submit();
+		});
+	});
+</script>
 </head>
 <body>
 <div class="container">
@@ -47,7 +71,7 @@
 			</tr>
 			<tr>
 				<td>category_name</td>
-				<td><select class="form-control" name = "categoryName">
+				<td><select class="form-control" name = "categoryName" id="categoryName">
 					<%
 						for(String s : list){
 							if(categoryName.equals(s)){
@@ -67,19 +91,19 @@
 			</tr>
 			<tr>
 				<td>product_name</td>
-				<td><input class="form-control" type="text" name="productName" value="<%=cap.getProduct().getProductName() %>"></td>
+				<td><input class="form-control" type="text" name="productName" id="productName"value="<%=cap.getProduct().getProductName() %>"></td>
 			</tr>
 			<tr>
 				<td>product_price</td>
-				<td><input class="form-control" type="text" name="productPrice" value="<%=cap.getProduct().getProductPrice() %>"></td>
+				<td><input class="form-control" type="text" name="productPrice" id="productPrice"value="<%=cap.getProduct().getProductPrice() %>"></td>
 			</tr>
 			<tr>
 				<td>product_content</td>
-				<td><textarea class="form-control" rows="5" cols="80" name = "productContent" ><%=cap.getProduct().getProductContent()%></textarea></td>
+				<td><textarea class="form-control" rows="5" cols="80" name = "productContent" id="productContent"><%=cap.getProduct().getProductContent()%></textarea></td>
 			</tr>
 			<tr>
 				<td>&nbsp;</td>
-				<td><button class="btn btn-outline-secondary" style=float:right;>수정 완료</button></td>
+				<td><button class="btn btn-outline-secondary" style=float:right; id="btn" type="button">수정 완료</button></td>
 			</tr>
 		</table>
 	</form>
