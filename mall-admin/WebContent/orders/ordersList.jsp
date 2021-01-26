@@ -101,7 +101,7 @@
 				<td><%=o.getOrders().getOrdersAddr() %></td>
 				<td><%=o.getOrders().getOrdersState() %></td>
 				<td><%=o.getOrders().getOrdersDate() %></td>
-				<td><a href="/mall-admin/orders/modifyOrdersState.jsp?ordersId=<%=o.getOrders().getOrdersId()%>&ordersState=<%=o.getOrders().getOrdersState()%>"> 수정</a></td>
+				<td><a class="btn btn-secondary" href="/mall-admin/orders/modifyOrdersState.jsp?ordersId=<%=o.getOrders().getOrdersId()%>&ordersState=<%=o.getOrders().getOrdersState()%>"> 수정</a></td>
 			</tr>
 		<%	
 			}
