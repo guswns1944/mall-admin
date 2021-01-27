@@ -31,12 +31,10 @@
 			}else if($("#productContent").val().length<1){
 				alert("제품설명 확인");
 				return;
-			}else if($(".soldOut:checked").val().length<1){
-				alert("품절여부 확인");
-				return;
+			}else{
+				$("#updateProductForm").submit();
 			}
-			
-			$("#addProductForm").submit();
+		
 		});
 	});
 </script>
@@ -53,12 +51,12 @@
 	System.out.println(productId+"<-productId");
 	CategoryAndProduct cap = new ProductDao().selectProductOne(productId);
 	CategoryDao categoryDao = new CategoryDao();
-	ArrayList<String> list = categoryDao.selectCategoryName();
+	ArrayList<Category> list = categoryDao.selectCategoryList();
 
 	%>
 	<br>
 	<h1>상품 수정하기</h1>
-	<form method="post" action="<%=request.getContextPath()%>/product/updateProductAction.jsp">
+	<form id="updateProductForm"method="post" action="<%=request.getContextPath()%>/product/updateProductAction.jsp">
 		<table class="table-sm table-bordered">
 			<tr>
 				<td>product_pic</td>
@@ -71,16 +69,16 @@
 			</tr>
 			<tr>
 				<td>category_name</td>
-				<td><select class="form-control" name = "categoryName" id="categoryName">
+				<td><select class="form-control" name = "categoryId" id="categoryName">
 					<%
-						for(String s : list){
-							if(categoryName.equals(s)){
+						for(Category s : list){
+							if(categoryName.equals(s.getCategoryName())){
 					%>
-								<option value="<%=s %>" selected="selected"><%=s %></option>
+								<option value="<%=s.getCategoryId() %>" selected="selected"><%=s.getCategoryName() %></option>
 					<%				
 							}else{
 					%>
-								<option value="<%=s %>"><%=s %></option>
+								<option value="<%=s.getCategoryId() %>"><%=s.getCategoryName() %></option>
 					<%			
 							}
 						

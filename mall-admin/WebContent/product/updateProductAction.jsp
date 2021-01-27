@@ -11,14 +11,14 @@
 
 	request.setCharacterEncoding("utf-8");
 	int productId = Integer.parseInt(request.getParameter("productId"));
-	String categoryName = request.getParameter("categoryName");
+	int categoryId = Integer.parseInt(request.getParameter("categoryId"));
 	String productName = request.getParameter("productName");
 	int productPrice = Integer.parseInt(request.getParameter("productPrice"));
 	String productContent = request.getParameter("productContent");
 	CategoryAndProduct cap = new CategoryAndProduct();
 	cap.setCategory(new Category());
 	cap.setProduct(new Product());
-	cap.getCategory().setCategoryName(categoryName);
+	cap.getProduct().setCategoryId(categoryId);
 	cap.getProduct().setProductId(productId);
 	cap.getProduct().setProductName(productName);
 	cap.getProduct().setProductPrice(productPrice);

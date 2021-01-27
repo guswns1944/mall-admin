@@ -29,28 +29,37 @@
 	});
 </script>
 <style>
-	#table{margin: 300px;}
+	#loginForm{
+		margin: 300px;
+	}
+	#table{
+		width:100%;
+	}
+	#table th{
+		padding-bottom: 10px;
+	}
 </style>	
 </head>
 <body>
 	<div class="container">
 	
 	<form method="post" action="/mall-admin/loginAction.jsp" id="loginForm">
-	
+		
+		<h1>Mall-Admin</h1>
 		<table id="table" class="table-md ">
 			<tr>
 				<th><h1>관리자 로그인</h1></th>
 			</tr>
 			<tr>
-				<th>관리자 ID :
-				<input type="text" name="adminId" value="admin" id="adminId"></th>
+				<th>관리자 ID 
+				<input class="form-control" type="text" name="adminId" value="admin" id="adminId"></th>
 			</tr>
 			<tr>
-				<th>관리자 PW :
-				<input type="password" name="adminPw" value=1234 id= "adminPw"></th>
+				<th>관리자 PW 
+				<input class="form-control" type="password" name="adminPw" value=1234 id= "adminPw"></th>
 			</tr>
 			<tr>
-			<th ><button class="btn btn-secondary" style=float:right; id="btn" type="button">로그인</button></th>
+			<th><button class="btn btn-secondary" style=float:right; id="btn" type="button">로그인</button></th>
 			</tr>
 		</table>
 		

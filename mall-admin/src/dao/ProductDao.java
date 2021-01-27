@@ -7,11 +7,11 @@ import java.sql.*;
 public class ProductDao {
 	// 상품 내용 변경
 	public void updateProduct(CategoryAndProduct cap) throws Exception {
-		String sql = "update product p ,category c set c.category_name = ?, p.product_name = ?, p.product_price = ?, p.product_Content = ? where c.category_id = p.category_id and p.product_id = ?";
+		String sql = "update product p ,category c set p.category_id = ?, p.product_name = ?, p.product_price = ?, p.product_Content = ? where c.category_id = p.category_id and p.product_id = ?";
 		DBUtil dbUtil = new DBUtil();
 		Connection conn = dbUtil.getConnection();
 		PreparedStatement stmt = conn.prepareStatement(sql);
-		stmt.setString(1, cap.getCategory().getCategoryName());
+		stmt.setInt(1, cap.getProduct().getCategoryId());
 		stmt.setString(2, cap.getProduct().getProductName());
 		stmt.setInt(3, cap.getProduct().getProductPrice());
 		stmt.setString(4, cap.getProduct().getProductContent());
